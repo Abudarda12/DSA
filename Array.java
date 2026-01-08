@@ -2,7 +2,7 @@
 public class Array {
 
     public static void main(String[] args) {
-        int arr[] = {2, 4, 6, 8,10};
+        int arr[] = {2, 4, 6, 8, 10};
 
         //int key = 3;
         // for(int i = 0; i < arr.length; i++){
@@ -18,7 +18,9 @@ public class Array {
         // }
         //pairs(arr);
         //subArrays(arr);
-        maxSubArray(arr);
+        // maxSubArray(arr);
+
+        sumSubPrefix(arr);
 
     }
 
@@ -103,23 +105,58 @@ public class Array {
     //maximum Subarrays Sum
     public static void maxSubArray(int arr[]) {
         int Max = Integer.MIN_VALUE;
-        
+
         for (int i = 0; i < arr.length; i++) {
             int start = i;
-            int curr = 0;
+
             for (int j = i; j < arr.length; j++) {
                 int end = j;
-                
+                int curr = 0;
+
                 for (int k = start; k <= end; k++) {
                     curr = curr + arr[k];
                 }
-                System.out.println(curr);  
-            }
-            if(Max < curr){
-                Max = curr;
+                System.out.println(curr);
+
+                if (Max < curr) {
+                    Max = curr;
+                }
             }
 
         }
         System.out.print(Max);
     }
+
+    // maximum subarray sum by prefix array
+    public static void sumSubPrefix(int arr[]){
+        int max =Integer.MIN_VALUE;
+        int prefix[] = new int[arr.length];
+         
+         int currSum=0;
+
+         prefix[0]=arr[0];
+
+         for(int i=1 ; i<arr.length ; i ++){
+            prefix[i] = prefix[i-1]+arr[i];
+         }
+
+        for(int i=0 ; i<arr.length ; i++){
+            int start=i;
+
+            for( int j=i ; j< arr.length ; j++){
+                int end=j;
+
+                currSum=start==0 ? prefix[end]:prefix[end]-prefix[start-i];
+
+                if(max<currSum){
+                    max=currSum;
+                }
+
+
+            }
+        }
+        System.out.println(max);
+    }
+
+
 }
