@@ -68,9 +68,49 @@ public class pattern{
     }
 
     // Butterfly Pattern
-    public static void ButterflyPattern()
+    public static void ButterflyPattern(){
+        for(int i = 1; i <= 4; i++){
+            for(int j=1; j <= i; j++){
+                System.out.print("*");
+            }
+           for(int a = 1; a <= 2*(4-i); a++ ){
+                System.out.print(" ");
+            }
+           for(int k = 1; k <= i; k++){
+            System.out.print("*");
+           }
+            System.out.println();
+        }
+        for(int i = 4; i >= 1; i--){
+            for(int j=1; j <= i; j++){
+                System.out.print("*");
+            }
+           for(int a = 1; a <= 2*(4-i); a++ ){
+                System.out.print(" ");
+            }
+           for(int k = 1; k <= i; k++){
+            System.out.print("*");
+           }
+            System.out.println();
+        }
+    }
+
+    //rhombus Patter
+    public static void rhombusPattern(){
+        for(int i = 1; i <= 5; i++){
+            //spaces
+            for(int j = 1; j <= 5-i; j++ ){
+                System.out.print(" ");
+            }
+            //star
+            for(int k = 1; k <= 5; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
-        zoroOneTriangle(5);
+        rhombusPattern();
     }
 }
