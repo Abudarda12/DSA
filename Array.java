@@ -43,14 +43,23 @@ public class Array{
 
     //Subarrays
     public static void subArray(int []arr){
+        
         for(int i = 0; i<arr.length; i++){
-            for(int j = i+1; j < arr.length; j++){
+            for(int j = i; j < arr.length; j++){
+                int sum = 0;
+                for(int k=i; k<= j; k++){
+                    System.out.print(arr[k]+" ");
+                    sum = sum + arr[k];
+                }
+                System.out.println("Sum of subarray: "+ sum);
                 
             }
+            System.out.println();
         }
+        
     }
     public static void main(String[] args) {
         int[] number = {2,3,4,10,6,8};
-        pairArr(number);
+        subArray(number);
     }
 }
