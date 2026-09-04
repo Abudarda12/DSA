@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Array{
 
     //linear search
@@ -58,8 +60,21 @@ public class Array{
         }
         
     }
+    //duplicate in Array 217
+    public static boolean containsDuplicate(int[] nums){
+        Map<Integer,Integer> hm = new HashMap<Integer,Integer>();
+        for(int i=0; i<nums.length; i++){
+            if(hm.containsKey(nums[i])){
+                return true;
+            }else{
+                hm.put(nums[i], i);
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        int[] number = {2,3,4,10,6,8};
-        subArray(number);
+        int[] number = {2,3,4,10,6,8,2};
+        boolean bool = containsDuplicate(number);
+        System.out.print(bool);
     }
 }
