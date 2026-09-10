@@ -1,24 +1,39 @@
 public class Sorting{
-    public static void main(String[] args){            
-        int shortedArray[] = {1, 2, 3, 4, 6, 7, 8, 9};
-
-        int start = 0;
-        int end = shortedArray.length - 1;
-        int missingTarget = 5;
-
-       while(start <= end){
-            int mid = start + (end - start) / 2;
-
-            if(shortedArray[mid] == missingTarget){
-                System.out.println("Target found at index: " + mid);
-                return;
-            } else if(shortedArray[mid] < missingTarget){
-                start = mid + 1;
-            } else {
-                end = mid - 1;
+    //bubble shorting
+    public static void bubbleSort(int []number){
+        int length = number.length;
+        for(int i=0; i<length-1; i++){
+           for(int j=0; j<length-1-i; j++){
+            if(number[j]>number[j+1]){
+                int temp = number[j];
+                number[j] = number[j+1];
+                number[j+1] = temp;
             }
+           }
         }
+        for(int i = 0; i<number.length; i++){
+            System.out.print(number[i]+" ");
+        }
+    }
 
-        System.out.println("Target found in the array at index: " + (start));
+    //Selection sort
+    public static void selectionSort(int[] arr){
+        for(int i = 0; i<arr.length-1; i++){
+            int minPos = i;
+            for(int j=i+1; j<arr.length-1; j++){
+                if(arr[minPos]>arr[j]){
+                    arr[minPos] = arr[j];
+                }
+            }
+
+            int temp = arr[minPos];
+            arr[minPos] = arr[i];
+            arr[i] = temp;
+
+        }
+    }
+    public static void main(String[] args) {
+        int[] number = {1,4,2,3,6,5};
+        bubbleSort(number);
     }
 }

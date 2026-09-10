@@ -72,9 +72,37 @@ public class Array{
         }
         return false;
     }
+
+    //2d Array
+    public static void twoDarr(int target){
+        int arr[][] = new int[3][3];
+        int row = arr.length; 
+        int column = arr[0].length;
+        
+        Scanner sc = new Scanner(System.in);
+        for(int i=0; i < row; i++){
+           for(int j=0; j < column; j++){
+            arr[i][j] = sc.nextInt();
+           }
+        }
+
+        //output
+        for(int i=0; i < row; i++){
+            for(int j=0; j < column; j++){
+                if(arr[i][j] == target){
+                    System.out.println("found at "+ i +","+ j);
+                    return;
+                }else{
+                    System.err.println("NOT FOUND");
+                
+                }
+            }
+           
+        }
+
+    }
     public static void main(String[] args) {
         int[] number = {2,3,4,10,6,8,2};
-        boolean bool = containsDuplicate(number);
-        System.out.print(bool);
+       twoDarr(7);
     }
 }
