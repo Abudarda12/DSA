@@ -97,6 +97,47 @@ public class LinkedList{
     public int  searchRc(int key){
         return helper(key, head);
     }
+
+    // reverse ll 
+    public void reverse(){
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+    //delete nth node from last
+    public void deleteNth(int n){
+        int sz = 0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+        
+        //delete 1st node from start
+        if(n==sz){
+            head = head.next;
+            return;
+        }
+        //other node 1->2->3->4
+        int i=0;
+        int nth = sz - n;
+        Node prev = head;
+        while(i<nth){
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+
+
+    }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addLast(1);
@@ -104,9 +145,10 @@ public class LinkedList{
         ll.addLast(3);
         ll.addLast(2);
         ll.add(0, 7);
-        //ll.printLl();
+        ll.printLl();
         //System.out.println(ll.size);
-        System.out.print(ll.searchRc(7));
+        ll.deleteNth(3);
+        ll.printLl();
 
 
     }
