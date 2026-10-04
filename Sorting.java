@@ -33,7 +33,7 @@ public class Sorting{
         }
     }
     public static void main(String[] args) {
-        int[] number = {1,4,2,3,6,5};
+        int[] number = {1,4,3,2,7,6,5};
         bubbleSort(number);
     }
 }
