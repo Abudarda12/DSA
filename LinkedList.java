@@ -138,17 +138,56 @@ public class LinkedList{
 
 
     }
+
+    //find mid by slow fast approach
+    public Node findMid(Node head){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    //check if ll is palindrome
+    public Boolean checkPalindrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        Node midNode = findMid(head);
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;
+        Node left = head;
+        while(right != null){
+            if(left.data != right.data){
+                return false;
+            }
+            right = right.next;
+            left = left.next;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
+        ll.addLast(6);
         ll.addLast(1);
         ll.addLast(6);
-        ll.addLast(3);
-        ll.addLast(2);
-        ll.add(0, 7);
+        ll.addLast(6);
+       
+        
         ll.printLl();
         //System.out.println(ll.size);
-        ll.deleteNth(3);
+        //ll.deleteNth(3);
         ll.printLl();
+        System.out.print(ll.checkPalindrome());
 
 
     }
