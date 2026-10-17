@@ -1,12 +1,35 @@
 public class Oops{
     public static void main(String[] args) {
-        Pen p1 = new Pen();
-        p1.setColor("Blue");
-        System.out.print("Color of Pen is "+p1.color);
+      Fish tuna = new Fish();
+      tuna.eat();
+        
 
-        p1.setTip(5);
-        System.out.print(" and tip is "+p1.tip+"mm");
+    }
 
+}
+class Animal{
+    String name;
+    String color;
+    
+    void eat(){
+        System.out.print("Eats");
+    }
+    
+}
+
+class Fish extends Animal{
+    int fins;
+
+
+}
+class BankAccount{
+    public String name;
+    private String password;
+    void setPasswor(String newPassword){
+        password = newPassword;
+    }
+    String getPassword(){
+        return password;
     }
 
 }
@@ -19,7 +42,7 @@ class Pen{
         color = newColor;
 
     }
-    void setTip(int newTip){
-        tip = newTip;
+    void setTip(int tip){
+        this.tip = tip;
     }
 }
