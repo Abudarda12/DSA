@@ -2,8 +2,6 @@ public class Oops{
     public static void main(String[] args) {
       Fish tuna = new Fish();
       tuna.eat();
-        
-
     }
 
 }
@@ -19,8 +17,6 @@ class Animal{
 
 class Fish extends Animal{
     int fins;
-
-
 }
 class BankAccount{
     public String name;

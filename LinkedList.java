@@ -1,6 +1,4 @@
-
-
-public class LinkedList{
+class LinkedList{
     public class Node{
         int data;
         Node next;
